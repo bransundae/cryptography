@@ -184,6 +184,30 @@ abstract class SignatureAlgorithm<T extends PublicKey> {
   /// ```
   Future<bool> verify(List<int> message, {required Signature signature});
 
+  /// Verifies whether the given bytes represent a valid public key.
+  ///
+  /// This method checks the structure and content of the bytes to determine if
+  /// they correspond to a valid public key according to the rules of the
+  /// underlying cryptographic algorithm.
+  ///
+  /// ## Example
+  /// In this example, we use [Ed25519]:
+  /// ```dart
+  /// import 'package:cryptography/cryptography.dart';
+  ///
+  /// Future<void> main() async {
+  ///   final publicKeyBytes = [/* ... bytes of the public key ... */];
+  ///
+  ///   final ed25519 = Ed25519();
+  ///   final isValidPublicKey = await ed25519.verifyPublicKeyBytes(publicKeyBytes);
+  ///
+  ///   print('Public key verification result: $isValidPublicKey');
+  /// }
+  /// ```
+  /// The method returns `true` if the bytes represent a valid public key, and
+  /// `false` otherwise.
+  Future<bool> verifyPublicKeyBytes(List<int> bytes);
+
   /// Verifies whether a string was signed with [signature].
   ///
   /// The string is converted to bytes using [utf8] codec.

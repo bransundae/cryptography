@@ -167,6 +167,17 @@ class DartEd25519 extends Ed25519 {
     return sB.equals(rhA);
   }
 
+  @override
+  Future<bool> verifyPublicKeyBytes(List<int> bytes) async {
+    if (bytes.length != 32) {
+      return false;
+    }
+
+    var point = await _pointDecompress(bytes);
+
+    return point != null;
+  }
+
   Future<SimplePublicKey> _publicKey(List<int> seed) async {
     // Take SHA512 hash of the private key.
     final hashOfPrivateKey = await _sha512.hash(seed);

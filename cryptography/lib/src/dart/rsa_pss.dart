@@ -50,4 +50,9 @@ class DartRsaPss extends RsaPss {
   Future<bool> verify(List<int> message, {required Signature signature}) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<bool> verifyPublicKeyBytes(List<int> bytes) async {
+    throw UnimplementedError();
+  }
 }

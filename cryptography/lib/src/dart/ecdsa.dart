@@ -87,4 +87,9 @@ class DartEcdsa extends Ecdsa {
   }) async {
     throw UnimplementedError();
   }
+
+  @override
+  Future<bool> verifyPublicKeyBytes(List<int> bytes) async {
+    throw UnimplementedError();
+  }
 }
