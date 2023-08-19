@@ -218,6 +218,12 @@ class BrowserRsaPss extends RsaPss {
       const ['verify'],
     );
   }
+
+  @override
+  Future<bool> verifyPublicKeyBytes(List<int> bytes) {
+    // TODO: implement verifyPublicKeyBytes
+    throw UnimplementedError();
+  }
 }
 
 class _BrowserRsaPssKeyPair extends RsaKeyPair {

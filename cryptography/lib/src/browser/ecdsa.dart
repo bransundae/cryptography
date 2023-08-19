@@ -170,4 +170,9 @@ class BrowserEcdsa extends Ecdsa {
       const ['verify'],
     );
   }
+
+  @override
+  Future<bool> verifyPublicKeyBytes(List<int> bytes) {
+    throw UnimplementedError();
+  }
 }

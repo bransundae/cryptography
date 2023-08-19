@@ -198,6 +198,11 @@ class BrowserRsaSsaPkcs1v15 extends RsaSsaPkcs1v15 {
       const ['verify'],
     );
   }
+
+  @override
+  Future<bool> verifyPublicKeyBytes(List<int> bytes) {
+    throw UnimplementedError();
+  }
 }
 
 class _BrowserRsaPublicKey extends RsaPublicKey {
